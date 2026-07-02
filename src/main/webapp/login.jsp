@@ -2,109 +2,172 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 
-<title>Campus Connect - Login</title>
+    <title>CampusConnect - Student Login</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-body{
-background:#f4f7fc;
-}
+    <style>
 
-.card{
-margin-top:80px;
-border-radius:15px;
-box-shadow:0px 0px 20px rgba(0,0,0,0.15);
-}
+    body{
+        background:linear-gradient(135deg,#4F46E5,#7C3AED);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-family:'Poppins',sans-serif;
+    }
 
-</style>
+    .login-card{
+        width:420px;
+        border:none;
+        border-radius:20px;
+        box-shadow:0 20px 45px rgba(0,0,0,.25);
+        overflow:hidden;
+    }
+
+    .card-header{
+        background:white;
+        border:none;
+        text-align:center;
+        padding:30px 20px 10px;
+    }
+
+    .logo{
+        font-size:34px;
+        color:#4F46E5;
+    }
+
+    h2{
+        font-weight:700;
+        margin-top:10px;
+    }
+
+    .card-body{
+        padding:30px;
+    }
+
+    .form-control{
+        border-radius:12px;
+        height:50px;
+    }
+
+    .btn-login{
+        background:#4F46E5;
+        color:white;
+        border-radius:12px;
+        height:48px;
+        font-weight:600;
+    }
+
+    .btn-login:hover{
+        background:#4338CA;
+        color:white;
+    }
+
+    a{
+        text-decoration:none;
+    }
+
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="card login-card">
 
-<div class="row justify-content-center">
+    <div class="card-header">
 
-<div class="col-md-5">
+        <i class="bi bi-mortarboard-fill logo"></i>
 
-<div class="card">
+        <h2>CampusConnect</h2>
 
-<div class="card-header bg-primary text-white text-center">
+        <p class="text-muted">Student Login</p>
 
-<h3>Campus Connect</h3>
+    </div>
 
-<p>Student Login</p>
+    <div class="card-body">
 
-</div>
+        <form action="login" method="post">
 
-<div class="card-body">
+            <div class="mb-3">
 
-<form action="login" method="post">
+                <label class="form-label">
+                    <i class="bi bi-envelope-fill"></i>
+                    Email
+                </label>
 
-<div class="mb-3">
+                <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required>
 
-<label>Email</label>
+            </div>
 
-<input
-type="email"
-name="email"
-class="form-control"
-required>
+            <div class="mb-4">
 
-</div>
+                <label class="form-label">
+                    <i class="bi bi-lock-fill"></i>
+                    Password
+                </label>
 
-<div class="mb-3">
+                <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Enter your password"
+                required>
 
-<label>Password</label>
+            </div>
 
-<input
-type="password"
-name="password"
-class="form-control"
-required>
+            <div class="d-grid">
 
-</div>
+                <button class="btn btn-login">
 
-<div class="d-grid">
+                    <i class="bi bi-box-arrow-in-right"></i>
 
-<button class="btn btn-primary">
+                    Login
 
-Login
+                </button>
 
-</button>
+            </div>
 
-</div>
+        </form>
 
-</form>
+        <hr>
 
-<hr>
+        <div class="text-center">
 
-<div class="text-center">
+            Don't have an account?
 
-<a href="register.jsp">
+            <a href="register.jsp">
+                Register
+            </a>
 
-New Student? Register Here
+        </div>
 
-</a>
+        <div class="text-center mt-3">
 
-</div>
+            <a href="index.jsp">
 
-</div>
+                <i class="bi bi-arrow-left"></i>
 
-</div>
+                Back to Home
 
-</div>
+            </a>
 
-</div>
+        </div>
+
+    </div>
 
 </div>
 
 </body>
-
 </html>
