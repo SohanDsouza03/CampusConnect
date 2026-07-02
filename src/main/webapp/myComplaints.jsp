@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,model.*,dao.*" %>
+<%@ page import="java.util.*,dao.*,model.*" %>
 
 <%
 User user = (User)session.getAttribute("user");
@@ -14,28 +14,36 @@ List<Complaint> list = dao.getComplaintsByUserId(user.getId());
 %>
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
 
 <title>My Complaints</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
 
 body{
-background:#eef2f7;
+background:#f4f7fc;
+font-family:'Poppins',sans-serif;
 }
 
-.container{
-margin-top:50px;
+.navbar{
+background:#4F46E5;
 }
 
 .card{
+border:none;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+table{
 border-radius:15px;
-box-shadow:0px 0px 15px rgba(0,0,0,0.15);
+overflow:hidden;
 }
 
 </style>
@@ -44,19 +52,41 @@ box-shadow:0px 0px 15px rgba(0,0,0,0.15);
 
 <body>
 
+<nav class="navbar navbar-dark">
+
 <div class="container">
 
-<div class="card">
+<a class="navbar-brand fw-bold">
 
-<div class="card-header bg-primary text-white">
+<i class="bi bi-mortarboard-fill"></i>
 
-<h3>My Complaints</h3>
+CampusConnect
+
+</a>
+
+<a href="dashboard.jsp" class="btn btn-light">
+
+Dashboard
+
+</a>
 
 </div>
 
-<div class="card-body">
+</nav>
 
-<table class="table table-bordered table-hover">
+<div class="container mt-5">
+
+<div class="card p-4">
+
+<h2 class="mb-4">
+
+<i class="bi bi-card-list text-primary"></i>
+
+My Complaints
+
+</h2>
+
+<table class="table table-hover table-bordered align-middle">
 
 <thead class="table-dark">
 
@@ -78,7 +108,7 @@ box-shadow:0px 0px 15px rgba(0,0,0,0.15);
 
 <%
 
-for(Complaint c : list){
+for(Complaint c:list){
 
 %>
 
@@ -94,13 +124,13 @@ for(Complaint c : list){
 
 <%
 
-if(c.getStatus().equals("Pending")){
+if(c.getStatus().equalsIgnoreCase("Resolved")){
 
 %>
 
-<span class="badge bg-warning text-dark">
+<span class="badge bg-success">
 
-Pending
+Resolved
 
 </span>
 
@@ -110,9 +140,9 @@ Pending
 
 %>
 
-<span class="badge bg-success">
+<span class="badge bg-warning text-dark">
 
-Resolved
+Pending
 
 </span>
 
@@ -136,9 +166,13 @@ Resolved
 
 </table>
 
-<a href="dashboard.jsp" class="btn btn-secondary">
+<div class="mt-4">
 
-← Back
+<a href="dashboard.jsp" class="btn btn-primary">
+
+<i class="bi bi-arrow-left"></i>
+
+Back to Dashboard
 
 </a>
 
@@ -149,5 +183,4 @@ Resolved
 </div>
 
 </body>
-
 </html>
