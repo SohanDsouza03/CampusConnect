@@ -11,27 +11,49 @@ if(user == null){
 
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <title>Dashboard</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
 
 body{
-background:#eef2f7;
+background:#f4f7fc;
+font-family:'Poppins',sans-serif;
 }
 
-.card{
-border-radius:15px;
-box-shadow:0px 0px 15px rgba(0,0,0,0.15);
-transition:0.3s;
+.navbar{
+background:#4F46E5;
 }
 
-.card:hover{
-transform:scale(1.03);
+.hero{
+background:linear-gradient(135deg,#4F46E5,#7C3AED);
+color:white;
+padding:60px;
+border-radius:20px;
+margin-top:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.card-option{
+border:none;
+border-radius:20px;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card-option:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:45px;
+color:#4F46E5;
 }
 
 </style>
@@ -40,13 +62,14 @@ transform:scale(1.03);
 
 <body>
 
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark">
 
 <div class="container">
 
-<span class="navbar-brand mb-0 h1">
-🎓 Campus Connect
-</span>
+<a class="navbar-brand fw-bold" href="#">
+<i class="bi bi-mortarboard-fill"></i>
+CampusConnect
+</a>
 
 <a href="logout" class="btn btn-light">
 Logout
@@ -56,29 +79,48 @@ Logout
 
 </nav>
 
-<div class="container mt-5">
+<div class="container">
 
-<h2 class="text-center mb-5">
+<div class="hero">
 
-Welcome, <%= user.getFullname() %> 👋
+<h2>
+
+Welcome,
+<%= user.getFullname() %> 👋
 
 </h2>
 
-<div class="row">
+<p>
+
+Manage your campus complaints quickly and track their status anytime.
+
+</p>
+
+</div>
+
+<div class="row mt-5">
 
 <div class="col-md-6">
 
-<div class="card text-center p-4">
+<div class="card card-option p-4 text-center">
 
-<h3>📢</h3>
+<i class="bi bi-megaphone-fill icon"></i>
 
-<h4>Raise Complaint</h4>
+<h4 class="mt-3">
 
-<p>Submit your grievance to the administration.</p>
+Raise Complaint
+
+</h4>
+
+<p class="text-muted">
+
+Submit a new complaint regarding campus facilities.
+
+</p>
 
 <a href="complaint.jsp" class="btn btn-primary">
 
-Open
+Raise Complaint
 
 </a>
 
@@ -88,17 +130,25 @@ Open
 
 <div class="col-md-6">
 
-<div class="card text-center p-4">
+<div class="card card-option p-4 text-center">
 
-<h3>📋</h3>
+<i class="bi bi-card-list icon"></i>
 
-<h4>My Complaints</h4>
+<h4 class="mt-3">
 
-<p>View all complaints submitted by you.</p>
+My Complaints
+
+</h4>
+
+<p class="text-muted">
+
+View all complaints submitted by you.
+
+</p>
 
 <a href="myComplaints.jsp" class="btn btn-success">
 
-View
+View Complaints
 
 </a>
 
@@ -111,5 +161,4 @@ View
 </div>
 
 </body>
-
 </html>
