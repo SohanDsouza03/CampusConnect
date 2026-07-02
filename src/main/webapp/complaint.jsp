@@ -1,22 +1,58 @@
+<%@ page import="model.User"%>
+
+<%
+User user = (User)session.getAttribute("user");
+
+if(user==null){
+    response.sendRedirect("login.jsp");
+    return;
+}
+%>
+
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <title>Raise Complaint</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
 
 body{
-background:#eef2f7;
+background:#f4f7fc;
+font-family:'Poppins',sans-serif;
+}
+
+.navbar{
+background:#4F46E5;
 }
 
 .card{
-margin-top:60px;
-border-radius:15px;
-box-shadow:0px 0px 20px rgba(0,0,0,0.15);
+border:none;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.btn-purple{
+background:#4F46E5;
+color:white;
+}
+
+.btn-purple:hover{
+background:#4338CA;
+color:white;
+}
+
+.form-control{
+border-radius:12px;
+}
+
+textarea{
+resize:none;
 }
 
 </style>
@@ -25,51 +61,85 @@ box-shadow:0px 0px 20px rgba(0,0,0,0.15);
 
 <body>
 
+<nav class="navbar navbar-dark">
+
 <div class="container">
 
-<div class="row justify-content-center">
+<a class="navbar-brand fw-bold">
 
-<div class="col-md-7">
+<i class="bi bi-mortarboard-fill"></i>
 
-<div class="card">
+CampusConnect
 
-<div class="card-header bg-danger text-white text-center">
+</a>
 
-<h3>Raise Complaint</h3>
+<a href="dashboard.jsp" class="btn btn-light">
+
+Dashboard
+
+</a>
 
 </div>
 
-<div class="card-body">
+</nav>
+
+<div class="container mt-5">
+
+<div class="row justify-content-center">
+
+<div class="col-md-8">
+
+<div class="card p-5">
+
+<h2 class="text-center mb-4">
+
+<i class="bi bi-megaphone-fill text-primary"></i>
+
+Raise Complaint
+
+</h2>
 
 <form action="complaint" method="post">
 
 <div class="mb-3">
 
-<label class="form-label">Complaint Title</label>
+<label class="form-label">
+
+Complaint Title
+
+</label>
 
 <input
 type="text"
 name="title"
 class="form-control"
+placeholder="Enter complaint title"
 required>
 
 </div>
 
-<div class="mb-3">
+<div class="mb-4">
 
-<label class="form-label">Description</label>
+<label class="form-label">
+
+Complaint Description
+
+</label>
 
 <textarea
 name="description"
-rows="5"
 class="form-control"
+rows="5"
+placeholder="Describe your complaint..."
 required></textarea>
 
 </div>
 
 <div class="d-grid">
 
-<button class="btn btn-danger">
+<button class="btn btn-purple btn-lg">
+
+<i class="bi bi-send-fill"></i>
 
 Submit Complaint
 
@@ -81,7 +151,11 @@ Submit Complaint
 
 <hr>
 
-<a href="dashboard.jsp" class="btn btn-secondary">
+<div class="text-center">
+
+<a href="dashboard.jsp">
+
+<i class="bi bi-arrow-left"></i>
 
 Back to Dashboard
 
